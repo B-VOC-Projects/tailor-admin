@@ -6,6 +6,7 @@ import {
   Text,
   Card,
   CardBody,
+  Box,
 } from "@yamada-ui/react";
 
 interface PageLayoutProps {
@@ -23,10 +24,15 @@ function PageLayout({
 }: PageLayoutProps) {
   return (
     <VStack gapY="4">
-      <HStack justifyContent="space-between">
+      <HStack justifyContent="space-between" paddingX="4">
+        <Box boxSize="13" flexShrink="0" bgColor="neutral.50" rounded="md">
+          C
+        </Box>
         <VStack gapY="0">
-          <Heading size="md">{title}</Heading>
-          <Text textColor="neutral.300">{description}</Text>
+          <Heading size="lg" fontSize="x-large">
+            {title}
+          </Heading>
+          <Text textColor="neutral.600">{description}</Text>
         </VStack>
         {actionButton}
       </HStack>
@@ -34,9 +40,10 @@ function PageLayout({
         bg="Background"
         overflowY="auto"
         maxH="calc(100vh - 225px)"
+        mt="4"
         variant="subtle"
       >
-        <CardBody>{children}</CardBody>
+        <CardBody padding="8">{children}</CardBody>
       </Card>
     </VStack>
   );
