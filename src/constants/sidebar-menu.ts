@@ -25,8 +25,8 @@ const STAFF_ROUTES = [
 
 const MASTER_ROUTES = [
   {
-    name: "Measure Unit",
-    path: "/master/measure-unit",
+    name: "Measurements",
+    path: "/master/measurement",
     icon: BiRuler,
   },
   {
