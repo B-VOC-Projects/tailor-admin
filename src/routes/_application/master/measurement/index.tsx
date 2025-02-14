@@ -4,7 +4,7 @@ import { Column } from "@yamada-ui/table";
 import { Table } from "@yamada-ui/table";
 import { useMemo } from "react";
 import { clothingTypeData, ClothingTypeList } from "@/data/master";
-import { BiBullseye, BiPencil, BiTrash } from "react-icons/bi";
+import { BiFullscreen, BiPencil, BiTrash } from "react-icons/bi";
 import PageLayout from "@/components/PageLayout";
 
 export const Route = createFileRoute("/_application/master/measurement/")({
@@ -33,11 +33,16 @@ function RouteComponent() {
       {
         id: "actions",
         header: "Actions",
-        cell: () => {
+        cell: ({ row }) => {
           return (
             <HStack>
-              <IconButton size="sm">
-                <BiBullseye />
+              <IconButton
+                size="sm"
+                title="View"
+                as={Link}
+                to={`${row.id}/view`}
+              >
+                <BiFullscreen />
               </IconButton>
               <IconButton size="sm">
                 <BiPencil />
@@ -59,15 +64,15 @@ function RouteComponent() {
     <PageLayout
       title="Manage Measurements"
       description="List of all measurements available"
-      actionButton={
+      sideSection={
         <Button
           as={Link}
           to="create"
           colorScheme="primary"
           variant="solid"
-          px="8"
+          size="lg"
         >
-          Create New Measurement
+          Create New
         </Button>
       }
     >
