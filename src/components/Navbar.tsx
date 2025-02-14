@@ -1,16 +1,26 @@
 import React from "react";
-import { Button, HStack, IconButton, Input, Stack } from "@yamada-ui/react";
+import { HStack, Icon, IconButton, Input } from "@yamada-ui/react";
 import { BiMenu } from "react-icons/bi";
 
 function Navbar() {
   return (
-    <HStack justifyContent="space-between" as="header" padding="4">
+    <HStack
+      justifyContent="space-between"
+      position="sticky"
+      top="0"
+      as="header"
+      padding="4"
+      zIndex="zarbon"
+      backgroundColor="Background"
+      borderBottom="1px solid"
+      borderBottomColor="gray.50"
+    >
       <IconButton
-        size="sm"
-        icon={<BiMenu />}
-        display={{ base: "none", md: "grid" }}
+        icon={<Icon as={BiMenu} fontSize="large" />}
+        display={{ base: "none", md: "block" }}
+        variant="solid"
       />
-      <Input placeholder="Search..." variant="filled" />
+      <Input placeholder="Search..." />
     </HStack>
   );
 }

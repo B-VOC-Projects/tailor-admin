@@ -12,37 +12,41 @@ import {
 interface PageLayoutProps {
   title: string;
   description: string;
-  actionButton?: React.ReactNode;
+  sideSection?: React.ReactNode;
   children: React.ReactNode;
 }
 
 function PageLayout({
   title,
   description,
-  actionButton,
+  sideSection,
   children,
 }: PageLayoutProps) {
   return (
     <VStack gapY="4">
-      <HStack justifyContent="space-between" paddingX="4">
-        <Box boxSize="13" flexShrink="0" bgColor="neutral.50" rounded="md">
-          C
+      <HStack alignItems="center" justifyContent="space-between" paddingX="4">
+        <Box
+          boxSize="11"
+          flexShrink="0"
+          bgColor="secondary.100"
+          rounded="md"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Text textColor="secondary.800" fontSize="2xl" fontWeight="extrabold">
+            {title.charAt(0)}
+          </Text>
         </Box>
         <VStack gapY="0">
-          <Heading size="lg" fontSize="x-large">
-            {title}
-          </Heading>
-          <Text textColor="neutral.600">{description}</Text>
+          <Heading size="md">{title}</Heading>
+          <Text textColor="neutral.600" fontSize="sm">
+            {description}
+          </Text>
         </VStack>
-        {actionButton}
+        {sideSection}
       </HStack>
-      <Card
-        bg="Background"
-        overflowY="auto"
-        maxH="calc(100vh - 225px)"
-        mt="4"
-        variant="subtle"
-      >
+      <Card bg="Background" mt="4" variant="subtle">
         <CardBody padding="8">{children}</CardBody>
       </Card>
     </VStack>
